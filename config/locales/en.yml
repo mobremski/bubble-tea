@@ -21,3 +21,8 @@
 
 en:
   hello: "Hello world"
+
+  activerecord:
+    attributes:
+      user:
+        encrypted_password: "Password"
