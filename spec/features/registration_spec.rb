@@ -1,5 +1,4 @@
 require 'rails_helper'
-
 feature 'registration' do
 
   scenario 'specifying valid and required information' do
