@@ -2,11 +2,6 @@ require 'rails_helper'
 
 feature 'registration' do
 
-  # As a prospective user
-  # I want to create an account
-  # So that I can post items and review them
-
-
   scenario 'specifying valid and required information' do
     visit root_path
     click_link 'Sign Up'
