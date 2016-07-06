@@ -9,6 +9,14 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div>
+    <% if user_signed_in? %>
+      <%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete' %>
+    <% else %>
+      <%= link_to t('auth.sign_in'), new_user_session_path %>
+      <%= link_to t('auth.sign_up'), new_user_registration_path %>
+    <% end %>
+  </div>
 
   <div class="container">
    <% flash.each do |key, value| %>
