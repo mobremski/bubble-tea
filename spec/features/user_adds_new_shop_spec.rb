@@ -11,14 +11,14 @@ feature "users can add shop" do
     visit new_shop_path
     expect(page).to have_content "Add a Shop Location"
 
-    fill_in 'Name', with: "Boba Fett's"
-    fill_in 'Address', with: "105 Beach St"
-    fill_in 'City', with: "Boston"
-    fill_in 'State', with: "Massachusetts"
-    fill_in 'Zip', with: "02111"
-    fill_in 'Description', with: "This bubble tea joint was founded during the Boston Tea Party."
-    fill_in 'Pricing', with: "3-4 dollars"
-    fill_in 'Hours', with: "9-7 M-F, closed Saturday, 11-2 Sunday"
+    fill_in "Name", with: "Boba Fett's"
+    fill_in "Address", with: "105 Beach St"
+    fill_in "City", with: "Boston"
+    fill_in "State", with: "Massachusetts"
+    fill_in "Zip", with: "02111"
+    fill_in "Description", with: "This bubble tea joint was founded during the Boston Tea Party."
+    fill_in "Pricing", with: "3-4 dollars"
+    fill_in "Hours", with: "9-7 M-F, closed Saturday, 11-2 Sunday"
 
     click_button "Add Shop"
 
