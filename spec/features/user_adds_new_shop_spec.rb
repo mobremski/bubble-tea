@@ -1,10 +1,5 @@
 require "rails_helper"
 
-# [] A shop must have a name, address, city, state, and zip code. It can optionally have a description, pricing and hours.
-# [] Visiting the `/shops/new` path should display a form for creating a new shop.
-# [] When adding a new shop, if I fill out the form correctly, I should see the page for the newly created shop.
-# [] When adding a new shop, if I fill out the form incorrectly and submit the form, I should see the form and be displayed the validation errors.
-
 feature "users can add shop" do
   scenario "user adds new shop successfully" do
 

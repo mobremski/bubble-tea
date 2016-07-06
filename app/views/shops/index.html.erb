@@ -1,0 +1,12 @@
+<h1>Bubble Tea Shops</h1>
+
+<% @shops.each do |shop| %>
+  <%= link_to shop.name, shop_path(shop) %>
+    <% if !shop.description.nil? %>
+      <%= shop.description %>
+    <% end %>
+<% end %>
+
+<div>
+  <%= link_to "Add New Shop", new_shop_path %>
+</div>
