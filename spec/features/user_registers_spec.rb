@@ -4,6 +4,8 @@ feature 'registration' do
   scenario 'specifying valid and required information' do
     visit root_path
     click_link 'Sign Up'
+
+    expect(current_path).to eq("/users/sign_up")
     fill_in 'First name', with: 'Jon'
     fill_in 'Last name', with: 'Smith'
     fill_in 'Email', with: 'user@example.com'
@@ -20,6 +22,7 @@ feature 'registration' do
     click_link 'Sign Up'
     click_button 'Sign up'
 
+    expect(current_path).to eq("/users")
     expect(page).to have_content("Email can't be blank")
     expect(page).to have_content("Password can't be blank")
     expect(page).to have_content("First name can't be blank")
@@ -36,6 +39,7 @@ feature 'registration' do
     fill_in 'Password confirmation', with: 'password1'
     click_button 'Sign up'
 
+    expect(current_path).to eq("/users")
     expect(page).to have_content("Password confirmation doesn't match Password")
   end
 
@@ -49,6 +53,7 @@ feature 'registration' do
     fill_in 'Password confirmation', with: 'pass'
     click_button 'Sign up'
 
+    expect(current_path).to eq("/users")
     expect(page).to have_content("Password is too short")
   end
 end
