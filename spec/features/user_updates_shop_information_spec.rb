@@ -1,4 +1,4 @@
-require "spec_helper"
+require 'rails_helper'
 
 feature "edit a shop" do
   let!(:shop) {Shop.create(
@@ -12,7 +12,7 @@ feature "edit a shop" do
       hours: "MF 9-5, Sat 10-5, Sun 11-2"
       )
   }
-  scenario "I see an edit link on the page" do
+  scenario "user sees an edit link on the page" do
     visit shop_path(shop)
     expect(page).to have_link("Edit Shop")
   end
