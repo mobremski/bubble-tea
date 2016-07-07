@@ -4,7 +4,7 @@ class Review < ActiveRecord::Base
 
   validates :user_id, presence: true
   validates :shop_id, presence: true
-  validates :rating, presence: true, numericality: {only_integer: true}
+  validates :rating, presence: true, numericality: { only_integer: true }
   validates_inclusion_of :rating, in: 1..5
-  validates :votecount, presence: true, numericality: {only_integer: true}
+  validates :votecount, presence: true, numericality: { only_integer: true }
 end
