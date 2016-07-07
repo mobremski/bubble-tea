@@ -23,7 +23,6 @@ feature "visitor sees a list of shops" do
 
     expect(page).to have_content("Bubblicious")
     expect(page).to have_content("Tapioca Town")
-
   end
 
   scenario "sees a list of shops from shops path and link for new shop" do
