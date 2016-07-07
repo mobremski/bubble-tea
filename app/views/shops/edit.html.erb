@@ -1,0 +1,29 @@
+<h1>Edit Shop Information</h1>
+
+<%= form_for(@shop)) do |f| %>
+  <%= f.label :name, 'Name' %>
+  <%= f.text_field :name %>
+
+  <%= f.label :address, 'Address' %>
+  <%= f.text_field :address %>
+
+  <%= f.label :city, 'City' %>
+  <%= f.text_field :city %>
+
+  <%= f.label :state, 'State' %>
+  <%= f.text_field :state %>
+
+  <%= f.label :zip, 'Zip' %>
+  <%= f.text_field :zip %>
+
+  <%= f.label :description, 'Description' %>
+  <%= f.text_area :description %>
+
+  <%= f.label :pricing, 'Pricing' %>
+  <%= f.text_field :pricing %>
+
+  <%= f.label :hours, 'Hours' %>
+  <%= f.text_field :hours %>
+
+  <%= f.submit 'Save Changes' %>
+<%end%>

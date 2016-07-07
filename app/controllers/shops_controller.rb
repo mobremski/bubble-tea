@@ -22,6 +22,21 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update_attributes(shop_params)
+      flash[:notice] = "Shop updated!"
+      redirect_to shop_path(@shop)
+    else
+      flash[:error] = @shop.errors.full_messages.join(', ')
+      render :edit
+    end
+  end
+
   private
 
   def shop_params
