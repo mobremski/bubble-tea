@@ -13,7 +13,6 @@ feature "user creates a new review" do
     )
   end
   scenario "user successfully submits a new review" do
-
     visit root_path
     click_link "Sign Up"
     fill_in "First name", with: "Jon"
