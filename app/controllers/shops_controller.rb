@@ -13,7 +13,7 @@ class ShopsController < ApplicationController
       flash[:notice] = "Shop added successfully"
       redirect_to shop_path(@shop)
     else
-      flash[:error] = @shop.errors.full_messages.join(', ')
+      flash.now[:error] = @shop.errors.full_messages.join(', ')
       render :new
     end
   end
@@ -21,6 +21,28 @@ class ShopsController < ApplicationController
   def show
     @shop = Shop.find(params[:id])
     @reviews = @shop.reviews
+  end
+
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    flash[:notice] = "Shop deleted!"
+    redirect_to shops_path
+  end
+
+  def edit
+    @shop = Shop.find(params[:id])
+  end
+
+  def update
+    @shop = Shop.find(params[:id])
+    if @shop.update_attributes(shop_params)
+      flash[:notice] = "Shop updated!"
+      redirect_to shop_path(@shop)
+    else
+      flash.now[:error] = @shop.errors.full_messages.join(', ')
+      render :edit
+    end
   end
 
   private
