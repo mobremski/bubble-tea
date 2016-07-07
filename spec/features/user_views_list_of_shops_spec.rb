@@ -21,15 +21,15 @@ feature "visitor sees a list of shops" do
   scenario "user visits root path and sees list of shops" do
     visit root_path
 
-    expect(page).to have_content("Bubblicious")
-    expect(page).to have_content("Tapioca Town")
+    expect(page).to have_content(bubblicious.name)
+    expect(page).to have_content(tapioca_town.name)
   end
 
   scenario "sees a list of shops from shops path and link for new shop" do
     visit shops_path
 
-    expect(page).to have_link "Bubblicious"
-    expect(page).to have_link "Tapioca Town"
+    expect(page).to have_link bubblicious.name
+    expect(page).to have_link tapioca_town.name
 
     first(:link, "Add New Shop").click
 
