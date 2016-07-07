@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Review, type: :model do
   it { is_expected.to validate_presence_of(:user_id) }
