@@ -22,6 +22,13 @@ class ShopsController < ApplicationController
     @shop = Shop.find(params[:id])
   end
 
+  def destroy
+    @shop = Shop.find(params[:id])
+    @shop.destroy
+    flash[:notice] = "Shop deleted!"
+    redirect_to shops_path
+  end
+
   private
 
   def shop_params
