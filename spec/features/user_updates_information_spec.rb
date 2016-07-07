@@ -18,7 +18,7 @@ feature "user updates registration information" do
     click_link "Edit"
     expect(page).to have_content("Edit User")
     fill_in "Email", with: "test3@gmail.com"
-    fill_in "Current password", with: 'password'
+    fill_in "Current password", with: "password"
     click_button "Update"
     expect(page).to have_content("Your account has been updated successfully.")
   end
