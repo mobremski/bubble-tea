@@ -1,29 +1,31 @@
 require 'rails_helper'
 
 feature "user deletes a shop" do
-  let!(:shop) {Shop.create(
-    name: "Bubblicious",
-    address: "33 Harrison Ave",
-    city: "Boston",
-    state: "MA",
-    zip: "02111",
-    description: "Straightforward Bubble Tea for a great price.",
-    pricing: "3-5 dollars",
-    hours: "MF 9-5, Sat 10-5, Sun 11-2"
+  let!(:shop) do
+    Shop.create(
+      name: "Bubblicious",
+      address: "33 Harrison Ave",
+      city: "Boston",
+      state: "MA",
+      zip: "02111",
+      description: "Straightforward Bubble Tea for a great price.",
+      pricing: "3-5 dollars",
+      hours: "MF 9-5, Sat 10-5, Sun 11-2"
     )
-  }
+  end
 
-  let!(:shop2) {Shop.create(
-    name: "Bubble Tease",
-    address: "33 Harrison Ave",
-    city: "Boston",
-    state: "MA",
-    zip: "02111",
-    description: "Straightforward Bubble Tea for a great price.",
-    pricing: "3-5 dollars",
-    hours: "MF 9-5, Sat 10-5, Sun 11-2"
+  let!(:shop2) do
+    Shop.create(
+      name: "Bubble Tease",
+      address: "33 Harrison Ave",
+      city: "Boston",
+      state: "MA",
+      zip: "02111",
+      description: "Straightforward Bubble Tea for a great price.",
+      pricing: "3-5 dollars",
+      hours: "MF 9-5, Sat 10-5, Sun 11-2"
     )
-  }
+  end
 
   scenario "User deletes a shop from the shop show page" do
     visit shop_path(shop)
