@@ -1,7 +1,7 @@
 require "spec_helper"
 
 feature "edit a shop" do
-  let (:shop) {Shop.create(
+  let!(:shop) {Shop.create(
       name: "Bubblicious",
       address: "33 Harrison Ave",
       city: "Boston",
@@ -13,19 +13,16 @@ feature "edit a shop" do
       )
   }
   scenario "I see an edit link on the page" do
-    :shop
-
-    visit "/shops/#{shop.id}"
+    visit shop_path(shop)
     expect(page).to have_link("Edit Shop")
   end
 
   scenario "user clicks on the edit link" do
-    :shop
-    visit "/shops/#{shop.id}"
+    visit shop_path(shop)
 
     click_link("Edit Shop")
 
-    expect(current_path).to eq("/shops/#{shop.id}/edit")
+    expect(current_path).to eq(edit_shop_path(shop))
     expect(find("#shop_name").value).to eq(shop.name)
     expect(find("#shop_address").value).to eq(shop.address)
     expect(find("#shop_city").value).to eq(shop.city)
@@ -37,8 +34,7 @@ feature "edit a shop" do
   end
 
   scenario "user updates shop successfully" do
-    :shop
-    visit "/shops/#{shop.id}/edit"
+    visit edit_shop_path(shop)
 
     fill_in("Name", with: "#{shop.name} updated")
     fill_in("Address", with: "#{shop.address} updated")
@@ -52,28 +48,30 @@ feature "edit a shop" do
     click_button("Save Changes")
 
 
-    expect(current_path).to eq("/shops/#{shop.id}")
+    expect(current_path).to eq(shop_path(shop))
     expect(page).to have_content("Shop updated!")
   end
 
   scenario "user enters invalid information" do
-    :shop
-    visit "/shops/#{shop.id}/edit"
+    visit edit_shop_path(shop)
 
     fill_in("Name", with: "")
     fill_in("Address", with: "")
-    fill_in("Description", with: "")
+    fill_in("City", with: "")
+    fill_in("State", with: "")
+    fill_in("Zip", with: "")
 
     click_button("Save Changes")
 
-    expect(current_path).to eq("/shops/#{shop.id}")
+    expect(current_path).to eq(shop_path(shop))
 
-    expect(page).to have_content("Please enter a valid description")
-    expect(page).to have_content("Please enter a valid name for this shop")
-    expect(page).to have_content("Please enter a valid address")
-    expect(page).to have_content("Please enter a valid city")
-    expect(page).to have_content("Please enter a valid state")
-    expect(page).to have_content("Please enter a valid zip")
+    expect(page).to have_content("Name can't be blank")
+    expect(page).to have_content("Address can't be blank")
+    expect(page).to have_content("City can't be blank")
+    expect(page).to have_content("State can't be blank")
+    expect(page).to have_content("Zip can't be blank")
+    expect(page).to have_content("Zip is the wrong length")
+    expect(page).to have_content("Zip is not a number")
     expect(page).not_to have_content("Shop updated!")
   end
 end

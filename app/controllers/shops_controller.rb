@@ -13,7 +13,7 @@ class ShopsController < ApplicationController
       flash[:notice] = "Shop added successfully"
       redirect_to shop_path(@shop)
     else
-      flash[:error] = @shop.errors.full_messages.join(', ')
+      flash.now[:error] = @shop.errors.full_messages.join(', ')
       render :new
     end
   end
@@ -32,7 +32,7 @@ class ShopsController < ApplicationController
       flash[:notice] = "Shop updated!"
       redirect_to shop_path(@shop)
     else
-      flash[:error] = @shop.errors.full_messages.join(', ')
+      flash.now[:error] = @shop.errors.full_messages.join(', ')
       render :edit
     end
   end
