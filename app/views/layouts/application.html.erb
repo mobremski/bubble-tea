@@ -13,17 +13,13 @@
     <div class="top-bar-title small-12 medium-4 columns">
       <strong>Bubble T-Stops</strong>
     </div>
-    <!-- <div class="top-bar-left">
-      <ul class="menu">
-        <li><input type="search" placeholder="Search"></li>
-        <li><button type="button" class="button">Search</button></li>
-      </ul>
-    </div> -->
+    <div class="top-bar-left">
+    </div>
     <div class="top-bar-right">
       <% if user_signed_in? %>
       <%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete' %>
       <% else %>
-      <%= link_to t('auth.sign_in'), new_user_session_path %>
+      <%= link_to t('auth.sign_in'), new_user_session_path %> / 
       <%= link_to t('auth.sign_up'), new_user_registration_path %>
       <% end %>
     </div>
