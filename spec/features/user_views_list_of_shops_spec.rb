@@ -28,11 +28,10 @@ feature "visitor sees a list of shops" do
   scenario "sees a list of shops from shops path and link for new shop" do
     visit shops_path
 
-    expect(page).to have_content "Bubble Tea Shops"
     expect(page).to have_link "Bubblicious"
     expect(page).to have_link "Tapioca Town"
 
-    click_link "Add New Shop"
+    first(:link, "Add New Shop").click
 
     expect(page).to have_content "Add a Shop Location"
   end
