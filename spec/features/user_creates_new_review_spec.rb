@@ -12,7 +12,6 @@ feature "user creates a new review" do
       hours: "M-F all day"
     )
   end
-
   scenario "user successfully submits a new review" do
 
     visit root_path
