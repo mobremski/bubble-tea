@@ -45,7 +45,7 @@ feature "edit a shop" do
     fill_in("Hours", with: "#{shop.hours} updated")
     fill_in("Description", with: "#{shop.description} updated")
 
-    click_button("Save Changes")
+    click_button("Update Shop")
 
 
     expect(current_path).to eq(shop_path(shop))
@@ -61,7 +61,7 @@ feature "edit a shop" do
     fill_in("State", with: "")
     fill_in("Zip", with: "")
 
-    click_button("Save Changes")
+    click_button("Update Shop")
 
     expect(current_path).to eq(shop_path(shop))
 
