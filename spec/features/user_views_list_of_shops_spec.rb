@@ -1,24 +1,32 @@
 require 'rails_helper'
 
 feature "visitor sees a list of shops" do
-  scenario "sees a list of shops and link for new shop" do
-    bubblicious = Shop.create(
-      name: "Bubblicious",
-      address: "33 Harrison Ave",
-      city: "Boston",
-      state: "MA",
-      zip: "02111",
-      description: "Straightforward Bubble Tea for a great price."
-      )
+  let!(:bubblicious) { Shop.create(
+    name: "Bubblicious",
+    address: "33 Harrison Ave",
+    city: "Boston",
+    state: "MA",
+    zip: "02111",
+    description: "Straightforward Bubble Tea for a great price."
+    ) }
 
-    tapioca_town = Shop.create(
-      name: "Tapioca Town",
-      address: "Beach streer",
-      city: "Boston",
-      state: "MA",
-      zip: "02112"
-    )
+  let!(:tapioca_town) { Shop.create(
+    name: "Tapioca Town",
+    address: "Beach streer",
+    city: "Boston",
+    state: "MA",
+    zip: "02112"
+    ) }
 
+  scenario "user visits root path and sees list of shops" do
+    visit root_path
+
+    expect(page).to have_content("Bubblicious")
+    expect(page).to have_content("Tapioca Town")
+
+  end
+
+  scenario "sees a list of shops from shops path and link for new shop" do
     visit shops_path
 
     expect(page).to have_content "Bubble Tea Shops"
@@ -31,24 +39,10 @@ feature "visitor sees a list of shops" do
   end
 
   scenario "clicks link and is taken to show page for given shop" do
-    bubblicious = Shop.create(
-      name: "Bubblicious",
-      address: "33 Harrison Ave",
-      city: "Boston",
-      state: "MA",
-      zip: "02111",
-      description: "Straightforward Bubble Tea for a great price."
-      )
-
-    visit root_path
+    visit shops_path
 
     click_link "Bubblicious"
 
-    expect(page).to have_content bubblicious.name
-    expect(page).to have_content bubblicious.address
-    expect(page).to have_content bubblicious.city
-    expect(page).to have_content bubblicious.state
-    expect(page).to have_content bubblicious.zip
-    expect(page).to have_content bubblicious.description
+    expect(page).to have_current_path(shop_path(bubblicious))
   end
 end
