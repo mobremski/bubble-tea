@@ -1,11 +1,23 @@
-<%= @shop.name %>
-<%= @shop.address %>
-<%= @shop.city %>
-<%= @shop.state %>
-<%= @shop.zip %>
-<%= @shop.description %>
-<%= @shop.pricing %>
-<%= @shop.hours %>
+<h1><%= @shop.name %></h1>
+
+<ul>
+  <li><%= @shop.address %></li>
+  <li><%= @shop.city %></li>
+  <li><%= @shop.state %></li>
+  <li><%= @shop.zip %></li>
+  <li><%= @shop.description %></li>
+  <li><%= @shop.pricing %></li>
+  <li><%= @shop.hours %></li>
+</ul>
+
+
+<h3>Reviews</h3>
+<% @reviews.each do |review| %>
+<%= review.comment %>
+<%= review.rating %>
+<%= review.created_at %>
+<% end %>
+
 
 
 <%= link_to "Add a Review", new_shop_review_path(@shop) %>
