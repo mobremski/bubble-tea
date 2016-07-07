@@ -15,7 +15,7 @@ feature "users can add shop" do
     fill_in "Pricing", with: "3-4 dollars"
     fill_in "Hours", with: "9-7 M-F, closed Saturday, 11-2 Sunday"
 
-    click_button "Add Shop"
+    click_button "Create Shop"
 
     expect(page).to have_content "Shop added successfully"
     expect(page).to have_content "Boba Fett's"
@@ -27,7 +27,7 @@ feature "users can add shop" do
   scenario "user does not provide proper information for a shop" do
     visit new_shop_path
 
-    click_button "Add Shop"
+    click_button "Create Shop"
     expect(page).to have_content "Name can't be blank"
     expect(page).to have_content "Address can't be blank"
     expect(page).to have_content "City can't be blank"
