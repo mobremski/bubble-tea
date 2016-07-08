@@ -23,4 +23,20 @@ feature "user deletes a review" do
     expect(page).to have_current_path shop_path(shop)
     expect(page).not_to have_content "Rating: #{review.rating}"
   end
+
+  scenario "user unsuccessfully deletes another user's review" do
+    user2 = FactoryGirl.create(:user)
+    user
+    shop
+    review
+
+    visit root_path
+    click_link "Sign In"
+    fill_in "Email", with: user2.email
+    fill_in "Password", with: user2.password
+    click_button "Log in"
+
+    visit shop_path(shop)
+    expect(page).not_to have_content "Delete Review"
+  end
 end

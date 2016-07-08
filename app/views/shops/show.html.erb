@@ -16,10 +16,11 @@
 Rating: <%= review.rating %>
 <%= review.created_at %>
 
-<%= link_to "Delete Review", shop_review_path(review.shop_id, review), action: 'destroy', method: :delete %>
-
+  <% if user_signed_in? && (current_user.id == review.user_id) %>
+    <%= link_to "Delete Review", shop_review_path(review.shop_id, review), action: 'destroy', method: :delete %>
+  <% end %>
 <% end %>
 
 <%= link_to "Add a Review", new_shop_review_path(@shop) %>
-<%= render 'shops/destroy' %>
+  <%= render 'shops/destroy' %>
 <%= link_to 'Edit Shop', edit_shop_path %>
