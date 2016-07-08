@@ -20,6 +20,6 @@ feature "user deletes their account" do
     expect(page).to have_content("Cancel my account")
 
     click_button "Cancel my account"
-    expect(page).to have_content("Bye! Your account has been successfully cancelled. We hope to see you again soon.")
+    expect(page).to have_content("Bye! Your account has been successfully cancelled")
   end
 end
