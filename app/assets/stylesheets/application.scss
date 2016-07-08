@@ -1,2 +1,22 @@
-// @import "*";
+@import "foundation_and_overrides";
 
+.form-header {
+  padding-left: 45px;
+}
+
+.errors h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.errors li {
+  font-size: 14px;
+}
+
+label {
+  display: inline;
+}
+
+.pass-length {
+  font-size: 0.875rem;
+}
