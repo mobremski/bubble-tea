@@ -38,7 +38,7 @@ class ReviewsController < ApplicationController
       flash[:notice] = "Review updated!"
       redirect_to shop_path(@shop)
     else
-      flash.now[:error] = @review.errors.full_messages.join(', ')
+      flash.now[:error] = @review.errors.full_messages.join(", ")
       render :edit
     end
   end
