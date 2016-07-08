@@ -6,10 +6,6 @@ feature "user deletes a review" do
   let!(:review) { FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id) }
 
   scenario "User successfully deletes a review from the shop show page" do
-    user
-    shop
-    review
-
     visit root_path
     click_link "Sign In"
     fill_in "Email", with: user.email
@@ -26,9 +22,6 @@ feature "user deletes a review" do
 
   scenario "user unsuccessfully deletes another user's review" do
     user2 = FactoryGirl.create(:user)
-    user
-    shop
-    review
 
     visit root_path
     click_link "Sign In"
