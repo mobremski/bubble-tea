@@ -1,10 +1,28 @@
-<h3>Review Form</h3>
+<div class="row">
+  <div class="small-12 medium-6 columns text-center">
+    <h1 class="form-header">Review Form</h1>
+  </div>
+</div>
+
 
 <%= form_for [@shop, @review] do |f|%>
-<%= f.label :rating %>
-<%= f.text_field :rating %>
-<%= f.label :comment, "Review" %>
-<%= f.text_field :comment %>
-<%= f.submit "Add Review" %>
+<div class="row">
+  <div class="small-12 medium-6 columns">
+    <%= f.label :rating %>
+    <%= f.select(:rating, options_for_select([[1, 1], [2, 2], [3, 3], [4, 4], [5, 5]])) %>
+  </div>
+</div>
+
+<div class="row">
+  <div class="small-12 medium-6 columns">
+    <%= f.label :comment, "Review" %>
+    <%= f.text_area :comment %>
+  </div>
+</div>
+<div class="row">
+  <div class="small-12 columns">
+    <%= f.submit "Add Review", class: "button" %>
+  </div>
+</div>
 
 <% end %>
