@@ -20,9 +20,32 @@ class ReviewsController < ApplicationController
     end
   end
 
+  def destroy
+    @review = Review.find(params[:id])
+    @shop = Shop.find(params[:shop_id])
+    @review.destroy
+    flash[:notice] = "Review deleted!"
+    redirect_to shop_path(@shop)
+  end
+
+  def edit
+    @review = Review.find(params[:review_id])
+  end
+
+  def update
+    @review = Review.find(params[:review_id])
+    if @review.update_attributes(review_params)
+      flash[:notice] = "Review updated!"
+      redirect_to shop_path(@shop)
+    else
+      flash.now[:error] = @review.errors.full_messages.join(", ")
+      render :edit
+    end
+  end
+
   private
 
   def review_params
-    params.require(:review).permit(:rating, :comment, :user_id, :shop_id)
+    params.require(:review).permit(:rating, :comment, :user_id, :review_id)
   end
 end
