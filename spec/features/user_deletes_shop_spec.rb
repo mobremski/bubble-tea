@@ -38,7 +38,6 @@ feature "user deletes a shop" do
   end
 
   scenario "User deletes a shop from the shop edit page" do
-    pending
     visit edit_shop_path(shop2)
     click_button "Delete Shop"
 

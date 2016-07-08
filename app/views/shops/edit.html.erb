@@ -1,2 +1,7 @@
 <h1 class="form-header">Edit Shop Information</h1>
 <%= render 'shops/form' %>
+<div class="row">
+  <div class="small-12 medium-3 columns">
+    <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete %>
+  </div>
+</div>
