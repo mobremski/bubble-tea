@@ -1,24 +1,76 @@
-<h1><%= @shop.name %></h1>
+<div class="row columns">
+  <div class="row" data-equalizer data-equalize-on="medium">
+    <div class="small-12 medium-8 columns" data-equalizer-watch>
+      <h1><%= @shop.name %></h1>
+    </div>
 
-<ul>
-  <li><%= @shop.address %></li>
-  <li><%= @shop.city %></li>
-  <li><%= @shop.state %></li>
-  <li><%= @shop.zip %></li>
-  <li><%= @shop.description %></li>
-  <li><%= @shop.pricing %></li>
-  <li><%= @shop.hours %></li>
-</ul>
+    <div class="small-12 medium-2 columns text-right edit-shop" data-equalizer-watch>
+      <%= link_to 'Edit Shop', edit_shop_path, { class: "button" } %>
+    </div>
+  </div>
 
-<h3>Reviews</h3>
-<% @reviews.each do |review| %>
-<%= review.comment %>
-<%= review.rating %>
-<%= review.created_at %>
-<% if user_signed_in? && current_user.id == review.user_id %>
-<%= link_to "Edit", edit_shop_review_path(review), class: "btn btn-sm btn-default"%>
-<% end %>
+  <div class="callout secondary">
+    <div class="shop-description">
+      <span class="bold">Description:</span> <%= @shop.description %>
+    </div>
 
-<%= link_to "Add a Review", new_shop_review_path(@shop) %>
-<%= render 'shops/destroy' %>
-<%= link_to 'Edit Shop', edit_shop_path %>
+    <div class="row" data-equalizer data-equalize-on="medium">
+      <div class="small-12 medium-4 columns">
+        <div class="callout primary" data-equalizer-watch>
+          <h4>Address</h4>
+          <p><%= @shop.address %>
+          <%= @shop.city %>, <%= @shop.state %> <%= @shop.zip %></p>
+        </div>
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <div class="callout primary" data-equalizer-watch>
+          <h4>Pricing</h4>
+          <% if @shop.pricing && @shop.pricing != "" %>
+            <p><%= @shop.pricing %></p>
+          <% else %>
+            <p>Information not available</p>
+          <% end %>
+        </div>
+      </div>
+
+      <div class="small-12 medium-4 columns">
+        <div class="callout primary" data-equalizer-watch>
+          <h4>Hours</h4>
+          <% if @shop.hours && @shop.hours != "" %>
+            <p><%= @shop.hours %></p>
+          <% else %>
+            <p>Information not available</p>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-2 columns">
+      <h3>Reviews</h3>
+    </div>
+
+    <div class="small-12 medium-2 columns text-right">
+      <%= link_to "Add a Review", new_shop_review_path(@shop), { class: "button" } %>
+    </div>
+  </div>
+
+  <% @reviews.each_with_index do |review, index| %>
+    <div class="row">
+      <div class="small-12 columns">
+        <% if index % 2 == 0 %>
+          <div class="callout secondary">
+        <% else %>
+          <div class="callout primary">
+        <% end %>
+          <p><span class="bold"><%= review.user.first_name %> <%= review.user.last_name %></span>
+          Rating: <%= review.rating %></p>
+          <p><%= review.comment %></p>
+          <p><%= review.created_at.strftime("%b %d, %Y, %-l:%M %p") %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>

@@ -1,7 +1,11 @@
-<h1 class="form-header">Edit Shop Information</h1>
+<div class="row">
+  <div class="small-12 medium-6 columns text-center">
+    <h1 class="form-header">Edit Shop Information</h1>
+  </div>
+</div>
 <%= render 'shops/form' %>
 <div class="row">
   <div class="small-12 medium-3 columns">
-    <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete %>
+    <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete, class: "button delete-button" %>
   </div>
 </div>
