@@ -13,8 +13,11 @@
 <h3>Reviews</h3>
 <% @reviews.each do |review| %>
 <%= review.comment %>
-<%= review.rating %>
+Rating: <%= review.rating %>
 <%= review.created_at %>
+
+<%= link_to "Delete Review", shop_review_path(review.shop_id, review), action: 'destroy', method: :delete %>
+
 <% end %>
 
 <%= link_to "Add a Review", new_shop_review_path(@shop) %>
