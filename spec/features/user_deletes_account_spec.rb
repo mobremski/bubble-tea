@@ -16,7 +16,7 @@ feature "user deletes their account" do
     expect(page).to have_content("Edit Profile")
 
     click_link "Edit"
-    expect(page).to have_path("/users/edit")
+    expect(page).to have_current_path("/users/edit")
     expect(page).to have_content("Cancel my account")
 
     click_button "Cancel my account"
