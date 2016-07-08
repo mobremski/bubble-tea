@@ -1,12 +1,18 @@
-<h1>Bubble Tea Shops</h1>
-
-<% @shops.each do |shop| %>
-  <%= link_to shop.name, shop_path(shop) %>
-    <% if !shop.description.nil? %>
-      <%= shop.description %>
-    <% end %>
-<% end %>
-
-<div>
-  <%= link_to "Add New Shop", new_shop_path %>
+<div class="list">
+  <%= render 'shops/add_shop' %>
+  <% @shops.each_with_index do |shop, index| %>
+    <div class="row">
+      <div class="small-10 small-centered columns">
+        <% if index % 2 == 0 %>
+          <div class="callout secondary">
+        <% else %>
+          <div class="callout primary">
+        <% end %>
+          <h3><%= link_to shop.name, shop_path(shop) %></h3>
+          <p><%= shop.address %>, <%= shop.city %>, <%= shop.state %> <%= shop.zip %></p>
+        </div>
+      </div>
+    </div>
+  <% end %>
+  <%= render 'shops/add_shop' %>
 </div>
