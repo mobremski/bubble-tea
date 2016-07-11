@@ -1,0 +1,10 @@
+<div class="">
+  <% if final_rating != 0 %>
+    <% final_rating.to_i.times do %>
+      <i class="fa fa-star" aria-hidden="true"></i>
+    <% end %>
+    <% (5 - final_rating.to_i).times do %>
+    <i class="fa fa-star-o" aria-hidden="true"></i>
+    <% end %>
+  <% end %>
+</div>
