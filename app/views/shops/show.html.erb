@@ -70,7 +70,7 @@
           <p><%= review.comment %></p>
           <p><%= review.created_at.strftime("%b %d, %Y, %-l:%M %p") %></p>
           <% if user_signed_in? && (current_user.id == review.user_id) %>
-            <%= link_to "Delete Review", shop_review_path(review.shop_id, review), action: 'destroy', method: :delete %>
+            <%= link_to "Edit Review", edit_shop_review_path(review.shop_id, review) %>
           <% end %>
         </div>
       </div>
