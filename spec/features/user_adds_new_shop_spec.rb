@@ -4,11 +4,8 @@ feature "users can add shop" do
   let!(:user) { FactoryGirl.create(:user) }
 
   scenario "user adds new shop successfully" do
-    visit root_path
+    sign_in
     click_link "Add New Shop"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
 
     expect(page).to have_content "Add a Shop Location"
 
@@ -31,11 +28,8 @@ feature "users can add shop" do
   end
 
   scenario "user does not provide proper information for a shop" do
-    visit root_path
+    sign_in
     click_link "Add New Shop"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
 
     click_button "Create Shop"
     expect(page).to have_content "Name can't be blank"
