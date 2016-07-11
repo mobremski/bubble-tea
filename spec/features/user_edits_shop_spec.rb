@@ -35,7 +35,7 @@ feature "user edits a review" do
     visit shop_path(shop)
     expect(page).not_to have_content "Edit Shop"
   end
-  
+
   scenario "user enters invalid information" do
     visit root_path
     click_link "Sign In"
