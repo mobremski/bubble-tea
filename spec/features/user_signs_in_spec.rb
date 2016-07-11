@@ -1,28 +1,10 @@
 require "rails_helper"
 
 feature "users can sign in" do
+  let!(:user) { FactoryGirl.create(:user) }
+
   scenario "user visits root_path and signs in successfully" do
-    visit root_path
-    click_link "Sign Up"
-    fill_in "First name", with: "Jon"
-    fill_in "Last name", with: "Smith"
-    fill_in "Email", with: "user@example.com"
-    fill_in "Password", with: "password"
-    fill_in "Password confirmation", with: "password"
-    click_button "Sign up"
-
-    expect(page).to have_content("You have signed up successfully")
-    expect(page).to have_content("Sign Out")
-    click_link "Sign Out"
-    expect(page).to have_content("Sign In")
-    expect(page).to have_content("Sign Up")
-
-    click_link "Sign In"
-    expect(page).to have_content("Log in")
-
-    fill_in "Email", with: "user@example.com"
-    fill_in "Password", with: "password"
-    click_button "Log in"
+    sign_in
     expect(page).to have_content("Signed in successfully.")
   end
 end

@@ -1,20 +1,12 @@
 require "rails_helper"
 
 feature "user deletes a shop" do
-  let!(:shop) do
-    Shop.create(
-      name: "Bubblicious",
-      address: "33 Harrison Ave",
-      city: "Boston",
-      state: "MA",
-      zip: "02111",
-      description: "Straightforward Bubble Tea for a great price.",
-      pricing: "3-5 dollars",
-      hours: "MF 9-5, Sat 10-5, Sun 11-2"
-    )
-  end
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
 
   scenario "User deletes a shop from the shop edit page" do
+    sign_in
+    
     visit edit_shop_path(shop)
     click_button "Delete Shop"
 
