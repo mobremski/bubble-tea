@@ -1,9 +1,12 @@
 require "rails_helper"
 
 feature "users can add shop" do
-  scenario "user adds new shop successfully" do
+  let!(:user) { FactoryGirl.create(:user) }
 
-    visit new_shop_path
+  scenario "user adds new shop successfully" do
+    sign_in
+    click_link "Add New Shop"
+
     expect(page).to have_content "Add a Shop Location"
 
     fill_in "Name", with: "Boba Fett's"
@@ -25,7 +28,8 @@ feature "users can add shop" do
   end
 
   scenario "user does not provide proper information for a shop" do
-    visit new_shop_path
+    sign_in
+    click_link "Add New Shop"
 
     click_button "Create Shop"
     expect(page).to have_content "Name can't be blank"

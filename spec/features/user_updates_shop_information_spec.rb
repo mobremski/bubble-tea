@@ -1,25 +1,18 @@
 require 'rails_helper'
 
 feature "edit a shop" do
-  let!(:shop) {Shop.create(
-      name: "Bubblicious",
-      address: "33 Harrison Ave",
-      city: "Boston",
-      state: "MA",
-      zip: "02111",
-      description: "Straightforward Bubble Tea for a great price.",
-      pricing: "3-5 dollars",
-      hours: "MF 9-5, Sat 10-5, Sun 11-2"
-      )
-  }
+  let!(:user) { FactoryGirl.create(:user) }
+  let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
+
   scenario "user sees an edit link on the page" do
+    sign_in
     visit shop_path(shop)
     expect(page).to have_link("Edit Shop")
   end
 
   scenario "user clicks on the edit link" do
+    sign_in
     visit shop_path(shop)
-
     click_link("Edit Shop")
 
     expect(current_path).to eq(edit_shop_path(shop))
@@ -34,6 +27,7 @@ feature "edit a shop" do
   end
 
   scenario "user updates shop successfully" do
+    sign_in
     visit edit_shop_path(shop)
 
     fill_in("Name", with: "#{shop.name} updated")
@@ -53,6 +47,7 @@ feature "edit a shop" do
   end
 
   scenario "user enters invalid information" do
+    sign_in
     visit edit_shop_path(shop)
 
     fill_in("Name", with: "")
