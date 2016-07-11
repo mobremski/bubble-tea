@@ -10,6 +10,21 @@
         <% end %>
           <h3><%= link_to shop.name, shop_path(shop) %></h3>
           <p><%= shop.address %>, <%= shop.city %>, <%= shop.state %> <%= shop.zip %></p>
+          <div>
+            <% rating = 0 %>
+            <% num_of_ratings = 0 %>
+            <% final_rating = 0 %>
+            <% if !shop.reviews.empty? %>
+              <% shop.reviews.each do |review| %>
+                <% rating += review.rating %>
+                <% num_of_ratings += 1 %>
+              <% end %>
+              <% final_rating += (rating.to_f / num_of_ratings) %>
+                <%= render 'shops/ratings_stars_not_empty', final_rating: final_rating %>
+              <% else %>
+                <%= render 'shops/ratings_stars_empty' %>
+            <% end %>
+          </div>
         </div>
       </div>
     </div>

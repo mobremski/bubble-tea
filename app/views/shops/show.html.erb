@@ -45,6 +45,23 @@
         </div>
       </div>
     </div>
+    <div class="row">
+      <div class="small-12 medium-4 columns">
+        <% rating = 0 %>
+        <% num_of_ratings = 0 %>
+        <% final_rating = 0 %>
+        <% if !@shop.reviews.empty? %>
+          <% @shop.reviews.each do |review| %>
+            <% rating += review.rating %>
+            <% num_of_ratings += 1 %>
+          <% end %>
+          <% final_rating += (rating.to_f / num_of_ratings) %>
+            <%= render 'shops/ratings_stars_not_empty', final_rating: final_rating %>
+          <% else %>
+            <%= render 'shops/ratings_stars_empty' %>
+        <% end %>
+      </div>
+    </div>
   </div>
 
   <div class="row">
@@ -66,7 +83,12 @@
           <div class="callout primary">
         <% end %>
           <p><span class="bold"><%= review.user.first_name %> <%= review.user.last_name %></span>
-          Rating: <%= review.rating %></p>
+          Rating: <% review.rating.times do %>
+            <i class="fa fa-star" aria-hidden="true"></i>
+          <% end %>
+          <% (5 - review.rating.to_i).times do %>
+            <i class="fa fa-star-o" aria-hidden="true"></i>
+          <% end %></p>
           <p><%= review.comment %></p>
           <p><%= review.created_at.strftime("%b %d, %Y, %-l:%M %p") %></p>
           <% if user_signed_in? && (current_user.id == review.user_id) %>
