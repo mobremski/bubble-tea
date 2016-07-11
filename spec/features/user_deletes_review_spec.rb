@@ -8,7 +8,8 @@ feature "user deletes a review" do
   scenario "User successfully deletes a review from the shop show page" do
     sign_in
     visit shop_path(shop)
-    click_link "Delete Review"
+    click_link "Edit Review"
+    click_button "Delete Review"
 
     expect(page).to have_content "Review deleted!"
     expect(page).to have_current_path shop_path(shop)
