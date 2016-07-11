@@ -3,7 +3,9 @@ require "rails_helper"
 feature "User edits own review" do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
-  let!(:review) { FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id) }
+  let!(:review) do
+    FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id)
+  end
 
   scenario "User clicks link from review page and makes edits" do
     sign_in
