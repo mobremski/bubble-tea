@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title><%= content_for?(:title) ? yield(:title) : "Untitled" %></title>
+  <title><%= content_for?(:title) ? yield(:title) : "Bubble T-Stops" %></title>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <%= stylesheet_link_tag    "application" %>
@@ -9,16 +9,24 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <div>
-    <% if user_signed_in? %>
-      <%= link_to t('auth.sign_out'), destroy_user_session_path, method: 'delete' %>
-    <% else %>
-      <%= link_to t('auth.sign_in'), new_user_session_path %>
-      <%= link_to t('auth.sign_up'), new_user_registration_path %>
-    <% end %>
+  <div class="top-bar">
+    <div class="top-bar-title small-12 medium-4 columns">
+      <strong>Bubble T-Stops</strong>
+    </div>
+    <div class="top-bar-left">
+    </div>
+    <div class="top-bar-right">
+      <% if user_signed_in? %>
+        <%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %> /
+        <%= link_to "Edit Profile", edit_user_registration_path %>
+      <% else %>
+        <%= link_to "Sign In", new_user_session_path %> /
+        <%= link_to "Sign Up", new_user_registration_path %>
+      <% end %>
+    </div>
   </div>
 
-  <div class="container">
+  <div class="row columns flash">
    <% flash.each do |key, value| %>
      <div class="alert alert-<%= key %>"><%= value %></div>
    <% end %>

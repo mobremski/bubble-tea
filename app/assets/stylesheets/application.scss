@@ -1,2 +1,62 @@
-// @import "*";
+@import "foundation_and_overrides";
 
+.list {
+  margin-top: 20px;
+}
+
+.add-shop {
+  margin-bottom: 1rem;
+}
+
+.form-header {
+  padding-left: 45px;
+}
+
+.errors h2 {
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.errors li {
+  font-size: 14px;
+}
+
+label {
+  display: inline;
+}
+
+.pass-length {
+  font-size: 0.875rem;
+}
+
+.links {
+  padding-top: 10px;
+}
+
+.field_with_errors {
+  display: inline;
+}
+
+.shop-description {
+  padding-bottom: 10px;
+}
+
+.flash {
+  padding-top: 10px;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.edit-shop {
+  padding-top: 17px;
+}
+
+.new-shop {
+  margin-bottom: 0;
+}
+
+.delete-button {
+  width: 116px;
+}
