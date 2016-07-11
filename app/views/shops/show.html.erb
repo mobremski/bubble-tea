@@ -5,7 +5,9 @@
     </div>
 
     <div class="small-12 medium-2 columns text-right edit-shop" data-equalizer-watch>
-      <%= link_to 'Edit Shop', edit_shop_path, { class: "button" } %>
+      <% if user_signed_in? && (current_user.id == @shop.user_id) %>
+        <%= link_to "Edit Shop", edit_shop_path(@shop) %>
+      <% end %>
     </div>
   </div>
 

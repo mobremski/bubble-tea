@@ -1,4 +1,6 @@
 class ShopsController < ApplicationController
+  before_action :authenticate_user!, except: [:index, :show]
+
   def index
     @shops = Shop.all
   end
@@ -9,6 +11,7 @@ class ShopsController < ApplicationController
 
   def create
     @shop = Shop.new(shop_params)
+    @shop.user = current_user
     if @shop.save
       flash[:notice] = "Shop added successfully"
       redirect_to shop_path(@shop)
