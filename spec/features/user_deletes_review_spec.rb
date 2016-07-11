@@ -7,7 +7,6 @@ feature "user deletes a review" do
 
   scenario "User successfully deletes a review from the shop show page" do
     sign_in
-    
     visit shop_path(shop)
     click_link "Delete Review"
 

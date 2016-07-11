@@ -6,7 +6,6 @@ feature "user deletes a shop" do
 
   scenario "User deletes a shop from the shop edit page" do
     sign_in
-    
     visit edit_shop_path(shop)
     click_button "Delete Shop"
 

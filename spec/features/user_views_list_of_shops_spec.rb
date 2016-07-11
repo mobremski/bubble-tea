@@ -2,8 +2,13 @@ require 'rails_helper'
 
 feature "visitor sees a list of shops" do
   let!(:user) { FactoryGirl.create(:user) }
-  let!(:bubblicious) { FactoryGirl.create(:shop, user_id: user.id, name: "Bubblicious") }
-  let!(:tapioca_town) { FactoryGirl.create(:shop, user_id: user.id, name: "Tapioca Town") }
+  let!(:bubblicious) do
+    FactoryGirl.create(:shop, user_id: user.id, name: "Bubblicious")
+  end
+  
+  let!(:tapioca_town) do
+    FactoryGirl.create(:shop, user_id: user.id, name: "Tapioca Town")
+  end
 
   scenario "user visits root path and sees list of shops" do
     visit root_path
