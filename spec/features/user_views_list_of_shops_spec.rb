@@ -5,7 +5,6 @@ feature "visitor sees a list of shops" do
   let!(:bubblicious) do
     FactoryGirl.create(:shop, user_id: user.id, name: "Bubblicious")
   end
-  
   let!(:tapioca_town) do
     FactoryGirl.create(:shop, user_id: user.id, name: "Tapioca Town")
   end
