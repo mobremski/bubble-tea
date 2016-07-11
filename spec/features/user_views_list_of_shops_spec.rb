@@ -39,7 +39,6 @@ feature "visitor sees a list of shops" do
     fill_in "Password", with: user.password
     click_button "Log in"
 
-
     expect(page).to have_link bubblicious.name
     expect(page).to have_link tapioca_town.name
 
