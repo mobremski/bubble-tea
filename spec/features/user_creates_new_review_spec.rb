@@ -29,8 +29,11 @@ feature "user creates a new review" do
     click_link "Add a Review"
 
     expect(page).to have_content("Review Form")
-    fill_in "Rating", with: 5
+    select("5", :from => "Rating")
     fill_in "Review", with: "A middling BT spot"
     click_button "Add Review"
+
+    expect(page).to have_content("Rating: 5")
+    expect(page).to have_content("A middling BT spot")
   end
 end
