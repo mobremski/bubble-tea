@@ -1,25 +1,12 @@
 require 'rails_helper'
 
 feature "visitor sees a list of shops" do
+  let!(:user) { FactoryGirl.create(:user) }
   let!(:bubblicious) do
-    Shop.create(
-      name: "Bubblicious",
-      address: "33 Harrison Ave",
-      city: "Boston",
-      state: "MA",
-      zip: "02111",
-      description: "Straightforward Bubble Tea for a great price."
-    )
+    FactoryGirl.create(:shop, user_id: user.id, name: "Bubblicious")
   end
-
   let!(:tapioca_town) do
-    Shop.create(
-      name: "Tapioca Town",
-      address: "Beach streer",
-      city: "Boston",
-      state: "MA",
-      zip: "02112"
-    )
+    FactoryGirl.create(:shop, user_id: user.id, name: "Tapioca Town")
   end
 
   scenario "user visits root path and sees list of shops" do

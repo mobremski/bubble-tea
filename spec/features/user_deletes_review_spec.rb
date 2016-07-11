@@ -6,12 +6,7 @@ feature "user deletes a review" do
   let!(:review) { FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id) }
 
   scenario "User successfully deletes a review from the shop show page" do
-    visit root_path
-    click_link "Sign In"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
-
+    sign_in
     visit shop_path(shop)
     click_link "Delete Review"
 
