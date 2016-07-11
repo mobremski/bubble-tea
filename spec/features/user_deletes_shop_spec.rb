@@ -5,11 +5,7 @@ feature "user deletes a shop" do
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
 
   scenario "User deletes a shop from the shop edit page" do
-    visit root_path
-    click_link "Sign In"
-    fill_in "Email", with: user.email
-    fill_in "Password", with: user.password
-    click_button "Log in"
+    sign_in
 
     visit edit_shop_path(shop)
     click_button "Delete Shop"
