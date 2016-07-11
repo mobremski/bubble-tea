@@ -22,7 +22,7 @@ feature "profile photo" do
   scenario "user edits a profile photo" do
     sign_in
     click_link "Edit Profile"
-    fill_in "Current password", with: "password"
+    fill_in "Current password", with: user.password
     attach_file "Profile photo", "#{Rails.root}/spec/support/images/photo.png"
     click_button "Update"
 
