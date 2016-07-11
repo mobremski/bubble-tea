@@ -13,3 +13,6 @@
 /tmp
 /coverage
 .env
+
+# Ignore image test directory.
+/public/uploads
