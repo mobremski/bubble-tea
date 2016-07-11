@@ -14,7 +14,6 @@ feature "user creates a new review" do
     fill_in "Review", with: "A middling BT spot"
     click_button "Create Review"
 
-    expect(page).to have_content("Rating: 5")
     expect(page).to have_content("A middling BT spot")
   end
 end
