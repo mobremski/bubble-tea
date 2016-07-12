@@ -1,4 +1,8 @@
-<h1 class="form-header">Edit <%= resource_name.to_s.humanize %></h1>
+<div class="row">
+  <div class="small-12 medium-6 columns text-center">
+    <h1 class="form-header">Edit <%= resource_name.to_s.humanize %></h1>
+  </div>
+</div>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
   <div class="row">
@@ -39,6 +43,20 @@
     <div class="small-12 medium-6 columns">
       <%= f.label :current_password %> <span class="pass-length">(current password needed to confirm changes)</span>
       <%= f.password_field :current_password, autocomplete: "off" %>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="small-12 medium-6 columns">
+      <%= f.label :profile_photo %>
+      <div class="row">
+        <div class="profile-photo columns">
+          <img src="<%= current_user.profile_photo.thumb %>">
+        </div>
+        <div class="small-9 columns end">
+          <%= f.file_field :profile_photo %>
+        </div>
+      </div>
     </div>
   </div>
 
