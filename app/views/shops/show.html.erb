@@ -9,6 +9,14 @@
         <%= link_to "Edit Shop", edit_shop_path(@shop) %>
       <% end %>
     </div>
+
+    <div class="small-12 medium-2 columns text-right edit-shop" data-equalizer-watch>
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete, class: "button delete-button" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="callout secondary">
