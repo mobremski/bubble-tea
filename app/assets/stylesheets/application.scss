@@ -9,7 +9,7 @@
 }
 
 .form-header {
-  padding-left: 45px;
+  padding: 0;
 }
 
 .errors h2 {
@@ -63,4 +63,14 @@ label {
 
 .delete-review-button {
   width: 128px;
+}
+
+.profile-photo {
+  padding-bottom: 10px;
+  padding-right: 0;
+  width: 60px;
+}
+
+.profile-photo-upload {
+  display: inline;
 }
