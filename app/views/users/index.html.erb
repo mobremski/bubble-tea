@@ -1,0 +1,26 @@
+<div class="row">
+  <div class="small-12 small-centered columns">
+    <h1 class="form-header">All Users</h1>
+  </div>
+</div>
+<div class="list">
+  <% @users.each_with_index do |user, index| %>
+  <div class="row">
+    <% if !user.admin? %>
+    <div class="small-10 small-centered columns">
+      <% if index % 2 == 0 %>
+        <div class="callout secondary">
+      <% else %>
+        <div class="callout primary">
+      <% end %>
+        <h3><%= user.last_name %>, <%= user.first_name %></h3>
+        <p><%= user.email %></p>
+        <div>
+          <%= button_to "Delete User", user_path(user), action: 'destroy', method: :delete, class: "button delete-user-button" %>
+        </div>
+        </div>
+      </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>
