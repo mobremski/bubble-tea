@@ -1,4 +1,4 @@
-class AddUserIdToShops < ActiveRecord::Migration
+lclass AddUserIdToShops < ActiveRecord::Migration
   def change
     add_column :shops, :user_id, :integer
   end
