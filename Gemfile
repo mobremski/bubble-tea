@@ -7,6 +7,10 @@ gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
 gem 'foundation-rails'
 gem 'devise'
+gem 'carrierwave'
+gem 'fog-aws'
+gem 'mini_magick'
+
 
 group :development, :test do
   gem 'pry-rails'
@@ -16,6 +20,7 @@ group :development, :test do
   gem 'factory_girl_rails', require: false
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
+  gem 'dotenv-rails'
 end
 
 group :test do
