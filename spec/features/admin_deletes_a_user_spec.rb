@@ -24,7 +24,7 @@ feature "User goes to user index page" do
   end
 
   scenario "user as non-admin tries to view user index page" do
-    visit root_path
+    visit shops_path
     click_link "Sign In"
     fill_in "Email", with: user2.email
     fill_in "Password", with: user2.password
