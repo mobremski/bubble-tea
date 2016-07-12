@@ -11,6 +11,13 @@
           <h3><%= link_to shop.name, shop_path(shop) %></h3>
           <p><%= shop.address %>, <%= shop.city %>, <%= shop.state %> <%= shop.zip %></p>
           <div>
+            <% if current_user %>
+              <% if current_user.admin? %>
+                <%= button_to "Delete Shop", shop, action: 'destroy', method: :delete, class: "button" %>
+              <% end %>
+            <% end %>
+          </div>
+          <div>
             <% rating = 0 %>
             <% num_of_ratings = 0 %>
             <% final_rating = 0 %>
