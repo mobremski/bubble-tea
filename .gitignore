@@ -16,3 +16,8 @@
 
 # Ignore image test directory.
 /public/uploads
+
+#ignore unnecessary JS files
+/node_modules
+/app/assets/javascripts/bundle.js
+/react/coverage
