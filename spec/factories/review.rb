@@ -1,7 +1,7 @@
 FactoryGirl.define do
   factory :review do
     rating "5"
-    comment "Great!"
+    comment "Awesome!"
     votecount "0"
   end
 end

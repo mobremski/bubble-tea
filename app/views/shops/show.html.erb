@@ -104,6 +104,12 @@
           <% if user_signed_in? && (current_user.id == review.user_id) %>
             <%= link_to "Edit Review", edit_shop_review_path(review.shop_id, review) %>
           <% end %>
+          <% if current_user %>
+            <% if current_user.admin? %>
+              <%= button_to "Delete Review", shop_review_path(review.shop_id, review),
+              action: 'destroy', method: :delete, class: "button delete-button" %>
+            <% end %>
+          <% end %>
         </div>
       </div>
     </div>
