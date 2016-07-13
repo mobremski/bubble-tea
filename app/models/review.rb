@@ -9,8 +9,8 @@ class Review < ActiveRecord::Base
   validates_inclusion_of :rating, in: 1..5
 
   def votecounts
-    upvotes = self.votes.where(upvote: true).count
-    downvotes = self.votes.where(upvote: false).count
-    return (upvotes - downvotes)
+    upvotes = votes.where(upvote: true).count
+    downvotes = votes.where(upvote: false).count
+    upvotes - downvotes
   end
 end
