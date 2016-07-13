@@ -10,7 +10,7 @@ gem 'devise'
 gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
-
+gem 'pg_search'
 
 group :development, :test do
   gem 'pry-rails'

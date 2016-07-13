@@ -2,7 +2,8 @@ class ShopsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
 
   def index
-    @shops = Shop.all
+    @shops = Shop.search(params[:query])
+    @shop = Shop.new
   end
 
   def new

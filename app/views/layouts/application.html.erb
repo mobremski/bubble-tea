@@ -14,13 +14,16 @@
       <strong><%= link_to "Bubble T-Stops", shops_path %></strong>
     </div>
     <div class="top-bar-left">
-      <% if current_user %>
-        <% if current_user.admin? %>
-          <%= link_to "View Users", users_path %>
-        <% end %>
-      <% end %>
+        <%= render "shops/search" %>
     </div>
     <div class="top-bar-right">
+      <div class="admin-only">
+        <% if current_user %>
+          <% if current_user.admin? %>
+            <%= link_to "View Users", users_path %>
+          <% end %>
+        <% end %>
+      </div> /
       <% if user_signed_in? %>
         <img src="<%= current_user.profile_photo.thumb %>" />
         <%= link_to "Sign Out", destroy_user_session_path, method: 'delete' %> /
