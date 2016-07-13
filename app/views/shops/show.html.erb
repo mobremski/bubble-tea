@@ -9,6 +9,14 @@
         <%= link_to "Edit Shop", edit_shop_path(@shop) %>
       <% end %>
     </div>
+
+    <div class="small-12 medium-2 columns text-right edit-shop" data-equalizer-watch>
+      <% if current_user %>
+        <% if current_user.admin? %>
+          <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete, class: "button delete-button" %>
+        <% end %>
+      <% end %>
+    </div>
   </div>
 
   <div class="callout secondary">
@@ -95,6 +103,12 @@
           <p><%= review.created_at.strftime("%b %d, %Y, %-l:%M %p") %></p>
           <% if user_signed_in? && (current_user.id == review.user_id) %>
             <%= link_to "Edit Review", edit_shop_review_path(review.shop_id, review) %>
+          <% end %>
+          <% if current_user %>
+            <% if current_user.admin? %>
+              <%= button_to "Delete Review", shop_review_path(review.shop_id, review),
+              action: 'destroy', method: :delete, class: "button delete-button" %>
+            <% end %>
           <% end %>
         </div>
       </div>
