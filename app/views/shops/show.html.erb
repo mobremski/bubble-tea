@@ -86,7 +86,26 @@
 
   <% @reviews.each_with_index do |review, index| %>
     <div class="row">
-      <div class="small-12 columns">
+      <div class="small-3 columns">
+        <div class="row">
+          <%= form_for [review, @vote] do |f| %>
+            <%= f.hidden_field :user, value: current_user %>
+            <%= f.hidden_field :upvote, value: true %>
+            <%= f.submit "upvote", class: "upvote-submit" %>
+          <% end %>
+        </div>
+        <div class="row count">
+          <%= review.votecount %>
+        </div>
+        <div class="row">
+          <%= form_for [review, @vote] do |f| %>
+            <%= f.hidden_field :user, value: current_user %>
+            <%= f.hidden_field :upvote, value: false %>
+            <%= f.submit "downvote", class: "downvote-submit" %>
+          <% end %>
+        </div>
+      </div>
+      <div class="small-9 columns">
         <% if index % 2 == 0 %>
           <div class="callout secondary">
         <% else %>
