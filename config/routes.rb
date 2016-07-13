@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   resources :shops do
     resources :reviews, only: [:new, :create, :update, :edit, :destroy]
   end
+  resources :reviews do
+    resources :votes, only:[:create, :update]
+  end
 end
