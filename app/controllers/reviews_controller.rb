@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
     @review.user = current_user
     if @review.save
       flash[:notice] = "Review added successfully"
+      ReviewMailer.alert_email(@review).deliver_now
       redirect_to shop_path(@shop)
     else
       flash.now[:error] = @review.errors.full_messages.join(", ")
