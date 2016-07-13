@@ -9,13 +9,13 @@ require "rails_helper"
     sign_in
     click_link "Boba"
 
-    expect(page).to have_css(".votecount div", text: "0")
+    expect(page).to have_css("p", text: "0")
   end
 
   scenario "user sees a review and upvotes" do
     sign_in
     click_link "Boba"
-    click_button "Upvote"
+    click_button "upvote"
 
     expect(page).to have_css(".votecount div", text: "1")
   end
@@ -23,21 +23,21 @@ require "rails_helper"
   scenario "user sees a review and downvotes" do
     sign_in
     click_link "Boba"
-    click_button "Downvote"
+    click_button "downvote"
 
     expect(page).to have_css(".votecount div", text: "-1")
   end
 
   scenario "user not signed in is redirected to login page when upvoting" do
     visit shop_path(shop)
-    click_button "Upvote"
+    click_button "upvote"
 
     expect(page).to have_current_path(new_user_session)
   end
 
   scenario "user not signed in is redirected to login page when downvoting" do
     visit shop_path(shop)
-    click_button "Downvote"
+    click_button "downvote"
 
     expect(page).to have_current_path(new_user_session)
   end

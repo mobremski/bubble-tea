@@ -89,17 +89,15 @@
       <div class="small-3 columns">
         <div class="row">
           <%= form_for [review, @vote] do |f| %>
-            <%= f.hidden_field :user, value: current_user %>
             <%= f.hidden_field :upvote, value: true %>
             <%= f.submit "upvote", class: "upvote-submit" %>
           <% end %>
         </div>
-        <div class="row count">
-          <%= review.votecount %>
+        <div class="row">
+          <p class="votecount"><%= review.votecount %></p>
         </div>
         <div class="row">
           <%= form_for [review, @vote] do |f| %>
-            <%= f.hidden_field :user, value: current_user %>
             <%= f.hidden_field :upvote, value: false %>
             <%= f.submit "downvote", class: "downvote-submit" %>
           <% end %>

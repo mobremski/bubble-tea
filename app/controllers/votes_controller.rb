@@ -3,16 +3,23 @@ class VotesController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    if Vote.find(review_id: params[:review_id], user_id: current_user[:id]) != nil
-      @vote = Vote.find(review_id: params[:review_id], user_id: current_user[:id])
-      if @vote.upvote != params[:vote][:upvote]
-        if @review.update_attributes(vote_params)
+    binding.pry
+    if Vote.find_by(review_id: params[:review_id], user_id: current_user[:id]) != nil
+      @search = Vote.find_by(review_id: params[:review_id], user_id: current_user[:id])
+      @vote = Vote.find_by(review_id: params[:review_id], user_id: current_user[:id])
+      @vote.upvote = params[:vote][:upvote]
+      binding.pry
+      if @search.upvote != @vote.upvote
+        binding.pry
+        if @vote.save
           if @vote.upvote == true
-            @review.votecount += 1
+            @review.votecount += 2
             @review.save
+            binding.pry
           elsif @vote.upvote == false
-            @review.votecount -= 1
+            @review.votecount -= 2
             @review.save
+            binding.pry
           end
         end
         redirect_to shop_path(@review.shop)
@@ -55,6 +62,6 @@ class VotesController < ApplicationController
   private
 
   def vote_params
-    params.require(:vote).permit(:user_id, :review_id, :upvote)
+    params.require(:vote).permit(:upvote)
   end
 end
