@@ -5,17 +5,16 @@
     </div>
 
     <div class="small-12 medium-2 columns text-right edit-shop" data-equalizer-watch>
-      <% if user_signed_in? && (current_user.id == @shop.user_id) %>
-        <%= link_to "Edit Shop", edit_shop_path(@shop) %>
-      <% end %>
-    </div>
-
-    <div class="small-12 medium-2 columns text-right edit-shop" data-equalizer-watch>
-      <% if current_user %>
-        <% if current_user.admin? %>
-          <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete, class: "button delete-button" %>
+      <div class="edit-delete-button" data-equalizer-watch>
+        <% if current_user %>
+          <% if current_user.admin? %>
+            <%= button_to "Delete Shop", @shop, action: 'destroy', method: :delete, class: "button delete-button" %>
+          <% end %>
         <% end %>
-      <% end %>
+        <% if user_signed_in? && (current_user.id == @shop.user_id) %>
+          <%= link_to "Edit Shop", edit_shop_path(@shop), { class: "button edit-shop-button" } %>
+        <% end %>
+      </div>
     </div>
   </div>
 
