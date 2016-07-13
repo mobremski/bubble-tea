@@ -3,7 +3,7 @@ class VotesController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    if !Vote.find_by(review_id: params[:review_id], user_id: current_user[:id]).nil?
+    unless Vote.find_by(review_id: params[:review_id], user_id: current_user[:id]).nil?
       @search = Vote.find_by(review_id: params[:review_id], user_id: current_user[:id])
       @vote = Vote.find_by(review_id: params[:review_id], user_id: current_user[:id])
       @vote.upvote = params[:vote][:upvote]
@@ -13,7 +13,6 @@ class VotesController < ApplicationController
         @vote.destroy
         flash[:notice] = "Vote removed!"
       end
-      redirect_to shop_path(@review.shop)
     else
       @vote = Vote.new(vote_params)
       @vote.review = @review
@@ -21,8 +20,8 @@ class VotesController < ApplicationController
       if !@vote.save
         flash[:notice] = "Something went wrong."
       end
-      redirect_to shop_path(@review.shop)
     end
+    redirect_to shop_path(@review.shop)
   end
 
   private
