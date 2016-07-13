@@ -7,6 +7,6 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create, :update, :edit, :destroy]
   end
   resources :reviews do
-    resources :votes, only:[:create, :update]
+    resources :votes, only: [:create]
   end
 end
