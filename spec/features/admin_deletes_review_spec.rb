@@ -2,9 +2,11 @@ require "rails_helper"
 
 feature "Admin deletes a review" do
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
-  let!(:review) { FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id) }
   let!(:user) { FactoryGirl.create(:user, admin: true) }
   let!(:user2) { FactoryGirl.create(:user) }
+  let!(:review) do
+    FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id)
+  end
 
   scenario "Admin successfully deletes a review from the shop's show page" do
     sign_in
