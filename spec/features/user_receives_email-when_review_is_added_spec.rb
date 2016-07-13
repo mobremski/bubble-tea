@@ -1,4 +1,4 @@
-require 'rails_helper'
+require "rails_helper"
 
 feature "User receives an email when their shop is reviewed" do
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
