@@ -11,17 +11,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160712140657) do
+ActiveRecord::Schema.define(version: 20160713195357) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "reviews", force: :cascade do |t|
-    t.integer  "user_id",                null: false
-    t.integer  "shop_id",                null: false
-    t.integer  "rating",                 null: false
+    t.integer  "user_id",    null: false
+    t.integer  "shop_id",    null: false
+    t.integer  "rating",     null: false
     t.text     "comment"
-    t.integer  "votecount",  default: 0, null: false
     t.datetime "created_at"
   end
 
@@ -58,5 +57,11 @@ ActiveRecord::Schema.define(version: 20160712140657) do
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
   add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
+
+  create_table "votes", force: :cascade do |t|
+    t.integer "user_id",   null: false
+    t.integer "review_id", null: false
+    t.boolean "upvote"
+  end
 
 end
