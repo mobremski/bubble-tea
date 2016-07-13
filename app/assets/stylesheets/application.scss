@@ -59,6 +59,7 @@ label {
 
 .delete-button {
   width: 116px;
+  display: inline-block;
 }
 
 .delete-review-button {
@@ -91,5 +92,13 @@ label {
 }
 
 .admin-only {
+  display: inline-block;
+}
+
+.edit-shop-button {
+  display: inline-block;
+}
+
+.edit-delete-button {
   display: inline-block;
 }
