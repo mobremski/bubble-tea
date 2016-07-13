@@ -3,7 +3,7 @@ class VotesController < ApplicationController
 
   def create
     @review = Review.find(params[:review_id])
-    unless Vote.find_by(review_id: params[:review_id], user_id: current_user[:id]).nil?
+    if !Vote.find_by(review_id: params[:review_id], user_id: current_user[:id]).nil?
       @search = Vote.find_by(review_id: params[:review_id], user_id: current_user[:id])
       @vote = Vote.find_by(review_id: params[:review_id], user_id: current_user[:id])
       @vote.upvote = params[:vote][:upvote]
