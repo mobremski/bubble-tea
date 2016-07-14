@@ -10,7 +10,7 @@ feature "Admin deletes a review", js: true do
 
   scenario "Admin successfully deletes a review from the shop's show page" do
     sign_in
-    click_link(shop.name)
+    visit shop_path(shop)
     expect(page).to have_content(review.comment)
     click_button("Delete Review")
     expect(page).to have_current_path(shop_path(shop))
@@ -23,7 +23,7 @@ feature "Admin deletes a review", js: true do
     fill_in "Email", with: user2.email
     fill_in "Password", with: user2.password
     click_button "Log in"
-    click_link(shop.name)
+    visit shop_path(shop)
 
     expect(page).not_to have_content("Delete Review")
   end

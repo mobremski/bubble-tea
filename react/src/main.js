@@ -3,9 +3,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import Shopfeed from './components/Shopfeed';
 
-$(function() {
-  ReactDOM.render(
-    <Shopfeed />,
-    document.getElementById('app')
-  );
-});
+  $(function() {
+    if(document.getElementById('app'))
+    {
+      ReactDOM.render(
+        <Shopfeed />,
+        document.getElementById('app')
+      );
+    };
+  });
