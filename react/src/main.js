@@ -1,10 +1,11 @@
 import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Shopfeed from './components/Shopfeed';
 
 $(function() {
   ReactDOM.render(
-    <h1>Boo yaa</h1>,
+    <Shopfeed />,
     document.getElementById('app')
   );
 });
