@@ -87,18 +87,18 @@
     <div class="row">
       <div class="small-2 large-1 columns text-center">
         <div class="row">
-          <%= form_for [review, @vote] do |f| %>
+          <%= form_for [review, @vote], html: { class: "upvote" } do |f| %>
             <%= f.hidden_field :upvote, value: true %>
-            <%= f.submit "upvote", class: "upvote-submit" %>
+            <%= f.submit "upvote", class: "button" %>
           <% end %>
         </div>
         <div class="row">
-          <div class="votecount"><%= review.votecounts %></div>
+          <div class="votecount-<%= review.id %>"><%= review.votecounts %></div>
         </div>
         <div class="row">
-          <%= form_for [review, @vote] do |f| %>
+          <%= form_for [review, @vote], html: { class: "downvote" } do |f| %>
             <%= f.hidden_field :upvote, value: false %>
-            <%= f.submit "downvote", class: "downvote-submit" %>
+            <%= f.submit "downvote", class: "button" %>
           <% end %>
         </div>
       </div>

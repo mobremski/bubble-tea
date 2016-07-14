@@ -21,10 +21,12 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'dotenv-rails'
+  gem 'capybara-webkit'
 end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 group :production do

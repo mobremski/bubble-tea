@@ -7,21 +7,21 @@ feature "user votes on a review" do
     FactoryGirl.create(:review, user_id: user2.id, shop_id: shop.id)
   end
 
-  scenario "user deletes their upvote by clicking the upvote button again" do
+  scenario "user deletes their upvote by clicking the upvote button again", js: true do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
     click_button "upvote"
     click_button "upvote"
 
-    expect(page).to have_css("div.votecount", text: "0")
+    expect(page).to have_css("div.votecount-1", text: "0")
   end
 
-  scenario "user deletes downvote by clicking the downvote button again" do
+  scenario "user deletes downvote by clicking the downvote button again", js: true do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
     click_button "downvote"
     click_button "downvote"
 
-    expect(page).to have_css("div.votecount", text: "0")
+    expect(page).to have_css("div.votecount-1", text: "0")
   end
 end

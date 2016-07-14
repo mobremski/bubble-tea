@@ -11,17 +11,18 @@ class VotesController < ApplicationController
         @vote.save
       else
         @vote.destroy
-        flash[:notice] = "Vote removed!"
       end
     else
       @vote = Vote.new(vote_params)
       @vote.review = @review
       @vote.user = current_user
-      if !@vote.save
-        flash[:notice] = "Something went wrong."
+      @vote.save
+    end
+    respond_to do |format|
+      format.json do
+        render json: { votecount: @review.votecounts, review_id: @review.id }
       end
     end
-    redirect_to shop_path(@review.shop)
   end
 
   private
