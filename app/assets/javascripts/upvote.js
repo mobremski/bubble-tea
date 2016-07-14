@@ -1,5 +1,6 @@
 $(document).ready(function() {
   $('form.upvote, form.downvote').submit(function(event) {
+    debugger;
     event.preventDefault();
     var vote = {
       vote: {
