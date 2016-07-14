@@ -11,6 +11,7 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'pg_search'
+gem 'database_cleaner'
 
 group :development, :test do
   gem 'pry-rails'
@@ -21,6 +22,7 @@ group :development, :test do
   gem 'valid_attribute'
   gem 'shoulda-matchers', require: false
   gem 'dotenv-rails'
+  gem 'capybara-webkit'
 end
 
 group :test do

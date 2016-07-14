@@ -1,6 +1,6 @@
 require "rails_helper"
 
-feature "Admin deletes a review" do
+feature "Admin deletes a review", js: true do
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
   let!(:user) { FactoryGirl.create(:user, admin: true) }
   let!(:user2) { FactoryGirl.create(:user) }
