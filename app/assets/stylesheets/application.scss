@@ -1,10 +1,10 @@
 @import "foundation_and_overrides";
 
 body {
-  background-image: url('/bubble_tea_background.jpg');
-  background-repeat: no-repeat;
   background-attachment: fixed;
+  background-image: url("/bubble_tea_background.jpg");
   background-position: right bottom;
+  background-repeat: no-repeat;
 }
 
 .list {
@@ -110,7 +110,8 @@ label {
   display: inline-block;
 }
 
-[type='text'], [type='search'] {
+[type='text'],
+[type='search'] {
   margin-top: 1rem;
 }
 
