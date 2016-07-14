@@ -1,5 +1,5 @@
 require "rails_helper"
-feature "user creates a new review" do
+feature "user creates a new review", js: true do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id, name: "Boba") }
 

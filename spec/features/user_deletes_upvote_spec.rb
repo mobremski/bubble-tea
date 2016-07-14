@@ -1,5 +1,5 @@
 require "rails_helper"
-feature "user votes on a review" do
+feature "user votes on a review", js: true do
   let!(:user) { FactoryGirl.create(:user) }
   let!(:user2) { FactoryGirl.create(:user) }
   let!(:shop) { FactoryGirl.create(:shop, user_id: user2.id, name: "Boba") }

@@ -1,39 +1,4 @@
 <div class="list">
   <%= render 'shops/add_shop' %>
-  <% @shops.each_with_index do |shop, index| %>
-    <div class="row">
-      <div class="small-10 small-centered columns">
-        <% if index % 2 == 0 %>
-          <div class="callout secondary">
-        <% else %>
-          <div class="callout primary">
-        <% end %>
-          <h3><%= link_to shop.name, shop_path(shop) %></h3>
-          <p><%= shop.address %>, <%= shop.city %>, <%= shop.state %> <%= shop.zip %></p>
-          <div>
-            <% if current_user %>
-              <% if current_user.admin? %>
-                <%= button_to "Delete Shop", shop, action: 'destroy', method: :delete, class: "button" %>
-              <% end %>
-            <% end %>
-          </div>
-          <div>
-            <% rating = 0 %>
-            <% num_of_ratings = 0 %>
-            <% final_rating = 0 %>
-            <% if !shop.reviews.empty? %>
-              <% shop.reviews.each do |review| %>
-                <% rating += review.rating %>
-                <% num_of_ratings += 1 %>
-              <% end %>
-              <% final_rating += (rating.to_f / num_of_ratings) %>
-                <%= render 'shops/ratings_stars_not_empty', final_rating: final_rating %>
-              <% else %>
-                <%= render 'shops/ratings_stars_empty' %>
-            <% end %>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
+  <div id="app"></div>
 </div>

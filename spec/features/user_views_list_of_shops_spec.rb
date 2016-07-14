@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-feature "visitor sees a list of shops" do
+feature "visitor sees a list of shops", js: true do
   let!(:user) { FactoryGirl.create(:user) }
 
   let!(:bubblicious) do

@@ -9,4 +9,7 @@ Rails.application.routes.draw do
   resources :reviews do
     resources :votes, only: [:create]
   end
+  namespace :api do
+    resources :shops, only: [:index]
+  end
 end
