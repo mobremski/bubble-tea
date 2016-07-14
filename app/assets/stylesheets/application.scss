@@ -1,5 +1,12 @@
 @import "foundation_and_overrides";
 
+body {
+  background-attachment: fixed;
+  background-image: url("/bubble_tea_background.jpg");
+  background-position: right bottom;
+  background-repeat: no-repeat;
+}
+
 .list {
   margin-top: 20px;
 }
@@ -101,4 +108,13 @@ label {
 
 .edit-delete-button {
   display: inline-block;
+}
+
+[type='text'],
+[type='search'] {
+  margin-top: 1rem;
+}
+
+.top-bar-right {
+  margin-top: 1.2rem;
 }
