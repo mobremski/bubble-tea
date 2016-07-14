@@ -11,7 +11,6 @@ feature "user votes on a review", js: true do
     sign_in
     visit shop_path(shop)
     click_button "upvote"
-    wait_for_ajax
     click_button "downvote"
 
     expect(page).to have_css("div.votecount-1", text: "-1")
@@ -21,7 +20,6 @@ feature "user votes on a review", js: true do
     sign_in
     visit shop_path(shop)
     click_button "downvote"
-    wait_for_ajax
     click_button "upvote"
 
     expect(page).to have_css("div.votecount-1", text: "1")
