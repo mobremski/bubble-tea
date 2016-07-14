@@ -9,19 +9,21 @@ feature "user votes on a review", js: true do
 
   scenario "user changes their vote from an upvote to a downvote" do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
     click_button "upvote"
+    wait_for_ajax
     click_button "downvote"
 
-    expect(page).to have_css("div.votecount", text: "-1")
+    expect(page).to have_css("div.votecount-1", text: "-1")
   end
 
   scenario "user changes their vote from a downvote to an upvote" do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
     click_button "downvote"
+    wait_for_ajax
     click_button "upvote"
 
-    expect(page).to have_css("div.votecount", text: "1")
+    expect(page).to have_css("div.votecount-1", text: "1")
   end
 end

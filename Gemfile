@@ -11,7 +11,6 @@ gem 'carrierwave'
 gem 'fog-aws'
 gem 'mini_magick'
 gem 'pg_search'
-gem 'database_cleaner'
 
 group :development, :test do
   gem 'pry-rails'
@@ -27,6 +26,7 @@ end
 
 group :test do
   gem 'coveralls', require: false
+  gem 'database_cleaner'
 end
 
 group :production do

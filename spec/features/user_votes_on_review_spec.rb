@@ -9,25 +9,25 @@ feature "user votes on a review", js: true do
 
   scenario "user sees a review with current upvote count" do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
 
-    expect(page).to have_css("div.votecount", text: "0")
+    expect(page).to have_css("div.votecount-1", text: "0")
   end
 
   scenario "user sees a review and upvotes" do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
     click_button "upvote"
 
-    expect(page).to have_css("div.votecount", text: "1")
+    expect(page).to have_css("div.votecount-1", text: "1")
   end
 
   scenario "user sees a review and downvotes" do
     sign_in
-    click_link "Boba"
+    visit shop_path(shop)
     click_button "downvote"
 
-    expect(page).to have_css("div.votecount", text: "-1")
+    expect(page).to have_css("div.votecount-1", text: "-1")
   end
 
   scenario "user not signed in is redirected to login page when upvoting" do
