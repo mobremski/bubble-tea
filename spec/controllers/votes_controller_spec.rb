@@ -3,8 +3,12 @@ require "rails_helper"
 RSpec.describe VotesController, type: :controller do
   let!(:user) { FactoryGirl.create(:user, password: "password") }
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
-  let!(:review) { FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id) }
-  let(:vote) { FactoryGirl.create(:vote, user_id: user.id, review_id: review.id, upvote: true) }
+  let!(:review) do
+     FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id)
+   end
+  let(:vote) do
+    FactoryGirl.create(:vote, user_id: user.id, review_id: review.id, upvote: true)
+  end
 
   describe "POST create" do
     it "modifies an existing vote" do
