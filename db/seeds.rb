@@ -12,7 +12,7 @@ admin = User.create!({
   password: "password",
   password_confirmation: "password",
   admin: true
-  })
+})
 
 user = User.create!({
   first_name: "Test",
@@ -21,7 +21,7 @@ user = User.create!({
   password: "password",
   password_confirmation: "password",
   admin: false
-  })
+})
 
 chatime = Shop.create!({
   name: "Chatime",
@@ -33,7 +33,7 @@ chatime = Shop.create!({
   hours: "10AM - 11PM",
   pricing: "$4 for regular size, $5.50 for a large",
   user_id: admin.id
-  })
+})
 
 teado = Shop.create!({
   name: "TeaDo",
@@ -44,7 +44,7 @@ teado = Shop.create!({
   description: "Great selection of teas with food options as well. Great place for a late-night snack.",
   hours: "10:30AM - 1AM",
   user_id: admin.id
-  })
+})
 
 kungfu = Shop.create!({
   name: "Kung Fu Tea",
@@ -56,7 +56,7 @@ kungfu = Shop.create!({
   hours: "11AM - 11PM",
   pricing: "$4.50 for regular size, $5.50 for a large",
   user_id: admin.id
-  })
+})
 
 tealosophy = Shop.create!({
   name: "Tealosophy",
@@ -68,24 +68,24 @@ tealosophy = Shop.create!({
   hours: "11AM - 11PM",
   pricing: "Iced - $3, Blended - $4.50",
   user_id: admin.id
-  })
+})
 
 kf_review = Review.create!({
   user_id: user.id,
   shop_id: kungfu.id,
   rating: 5,
   comment: "Absolutely love this place!"
-  })
+})
 
 teado_review = Review.create!({
   user_id: user.id,
   shop_id: teado.id,
   rating: 5,
   comment: "I would give it 6 stars if I could"
-  })
+})
 
 ct_review = Review.create!({
   user_id: user.id,
   shop_id: chatime.id,
   rating: 4
-  })
+})
