@@ -5,7 +5,7 @@ RSpec.describe VotesController, type: :controller do
   let!(:shop) { FactoryGirl.create(:shop, user_id: user.id) }
   let!(:review) do
      FactoryGirl.create(:review, user_id: user.id, shop_id: shop.id)
-   end
+  end
   let(:vote) do
     FactoryGirl.create(:vote, user_id: user.id, review_id: review.id, upvote: true)
   end
