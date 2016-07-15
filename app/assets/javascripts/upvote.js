@@ -19,7 +19,7 @@ $(document).ready(function() {
     });
 
     request.fail(function() {
-      window.location.replace("/users/sign_in");
+      window.location.assign("/users/sign_in");
     })
   });
 });
