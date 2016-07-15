@@ -20,6 +20,5 @@ feature "User searches for shops from the index page", js: true do
 
     expect(page).to have_content(shop.name)
     expect(page).to have_content(shop2.name)
-
   end
 end
