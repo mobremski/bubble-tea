@@ -1,13 +1,14 @@
 @import "foundation_and_overrides";
 $light-blue: rgba(222, 240, 252, 0.3);
 $purple: rgba(216, 214, 254, 0.3);
+$blue: #66c0f1;
 
 body {
   background-attachment: fixed;
   background-image: url("/bubble_tea_background.jpg");
-  background-size: 800px 576px;
   background-position: right bottom;
   background-repeat: no-repeat;
+  background-size: 800px 576px;
 }
 
 .list {
@@ -119,29 +120,31 @@ label {
 }
 
 .top-bar-right {
-  margin-top: .5rem;
+  margin-top: 0.5rem;
 }
 
 .callout.primary {
   background-color: $light-blue;
 }
 
-.callout.secondary, .top-bar {
+.callout.secondary,
+.top-bar {
   background-color: $purple;
 }
 
 .button {
-  background-color: #66C0F1;
+  background-color: $blue;
 }
 
-.upvote-button{
+.upvote-button {
   margin-bottom: 0;
 }
 
-.upvote-button, .downvote-button{
-  padding-top: .55em;
-  padding-bottom: .55em;
-  padding-left: .6em;
-  padding-right: .6em;
+.upvote-button,
+.downvote-button {
   font-weight: bold;
+  padding-bottom: 0.55em;
+  padding-left: 0.6em;
+  padding-right: 0.6em;
+  padding-top: 0.55em;
 }
