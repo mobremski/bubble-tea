@@ -12,7 +12,7 @@ class Shopfeed extends Component {
   componentDidMount() {
     $.ajax({
       method: "GET",
-      url: "/api/shops",
+      url: "/api/shops" + window.location.search,
       contentType: "application/json"
     })
     .done(data => {
