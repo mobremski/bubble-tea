@@ -84,29 +84,31 @@
   </div>
 
   <% @reviews.each_with_index do |review, index| %>
-    <div class="row">
-      <div class="small-2 large-1 columns text-center">
-        <div class="row">
-          <%= form_for [review, @vote], html: { class: "upvote" } do |f| %>
-            <%= f.hidden_field :upvote, value: true %>
-            <%= f.button class: "upvote-button" do %>
-              <i class="fa fa-sort-asc" aria-hidden="true"></i>
+    <div class="row" data-equalizer data-equalize-on="medium">
+      <div class="small-2 large-1 columns text-center vote-parent" data-equalizer-watch>
+        <div class="vote-child">
+          <div class="row">
+            <%= form_for [review, @vote], html: { class: "upvote" } do |f| %>
+              <%= f.hidden_field :upvote, value: true %>
+              <%= f.button class: "upvote-button" do %>
+                <i class="fa fa-sort-asc" aria-hidden="true"></i>
+              <% end %>
             <% end %>
-          <% end %>
-        </div>
-        <div class="row">
-          <div class="votecount-<%= review.id %> bold"><%= review.votecounts %></div>
-        </div>
-        <div class="row">
-          <%= form_for [review, @vote], html: { class: "downvote" } do |f| %>
-            <%= f.hidden_field :upvote, value: false %>
-            <%= f.button class: "downvote-button" do %>
-              <i class="fa fa-sort-desc" aria-hidden="true"></i>
+          </div>
+          <div class="row">
+            <div class="votecount-<%= review.id %> bold"><%= review.votecounts %></div>
+          </div>
+          <div class="row">
+            <%= form_for [review, @vote], html: { class: "downvote" } do |f| %>
+              <%= f.hidden_field :upvote, value: false %>
+              <%= f.button class: "downvote-button" do %>
+                <i class="fa fa-sort-desc" aria-hidden="true"></i>
+              <% end %>
             <% end %>
-          <% end %>
+          </div>
         </div>
       </div>
-      <div class="small-10 large-11 columns">
+      <div class="small-10 large-11 columns" data-equalizer-watch>
         <% if index % 2 == 0 %>
           <div class="callout primary">
         <% else %>
