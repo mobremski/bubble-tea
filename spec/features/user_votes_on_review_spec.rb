@@ -17,7 +17,7 @@ feature "user votes on a review", js: true do
   scenario "user sees a review and upvotes" do
     sign_in
     visit shop_path(shop)
-    click_button "upvote"
+    find(".upvote-button").trigger("click")
 
     expect(page).to have_css("div.votecount-1", text: "1")
   end
@@ -25,21 +25,21 @@ feature "user votes on a review", js: true do
   scenario "user sees a review and downvotes" do
     sign_in
     visit shop_path(shop)
-    click_button "downvote"
+    find(".downvote-button").trigger("click")
 
     expect(page).to have_css("div.votecount-1", text: "-1")
   end
 
   scenario "user not signed in is redirected to login page when upvoting" do
     visit shop_path(shop)
-    click_button "upvote"
+    find(".upvote-button").trigger("click")
 
     expect(page).to have_current_path(new_user_session_path)
   end
 
   scenario "user not signed in is redirected to login page when downvoting" do
     visit shop_path(shop)
-    click_button "downvote"
+    find(".downvote-button").trigger("click")
 
     expect(page).to have_current_path(new_user_session_path)
   end
