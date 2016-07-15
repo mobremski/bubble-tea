@@ -6,13 +6,13 @@
 # About This Project
 Our app is a Bubble Tea Shop review site.  This is a group project for Launch Academy.
 
-# Collaborators:
+# Collaborators
 - Michael Obremski (https://github.com/mobremski/)
 - Shelly Stuart (https://github.com/shellystuart)
 - Padrig Tuck (https://github.com/padrigirdap)
 - Alice Liou (https://github.com/amliou)
 
-# Features:
+# Features
 - Ability to add a bubble tea shop to be reviewed.
 - Ability to rate the shop (score on a scale of 1-5) and to optionally comment on it (write a review).
 - Ability to upvote or downvote a review utilizing AJAX so that a complete page reload isn't necessary.
