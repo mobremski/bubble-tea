@@ -21,11 +21,20 @@ class Shopfeed extends Component {
   }
 
   render() {
-    let shopsList = this.state.shops.map(shop => {
+    let shopsList = this.state.shops.map((shop, i) => {
+      let shopClass;
+
+      if(i % 2 === 0){
+        shopClass = "callout primary"
+      } else {
+        shopClass = "callout secondary"
+      }
+
       return(
         <Shop
           key={shop.id}
           id={shop.id}
+          style={shopClass}
           name={shop.name}
           description={shop.description}
           address={shop.address}

@@ -1,6 +1,5 @@
 $(document).ready(function() {
   $('form.upvote, form.downvote').submit(function(event) {
-    debugger;
     event.preventDefault();
     var vote = {
       vote: {
@@ -20,7 +19,7 @@ $(document).ready(function() {
     });
 
     request.fail(function() {
-      window.location.replace("http://localhost:3000/users/sign_in");
+      window.location.replace("/users/sign_in");
     })
   });
 });
