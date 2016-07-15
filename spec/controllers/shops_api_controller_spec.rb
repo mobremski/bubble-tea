@@ -14,8 +14,8 @@ RSpec.describe Api::ShopsController, type: :controller do
 
     it "gets search results when a query is provided" do
       user = FactoryGirl.create(:user, password: "password")
-      shop = FactoryGirl.create(:shop, user_id: user.id)
-      shop2 = FactoryGirl.create(:shop, user_id: user.id, name: "Tea Break")
+      FactoryGirl.create(:shop, user_id: user.id)
+      FactoryGirl.create(:shop, user_id: user.id, name: "Tea Break")
       get :index, query: "Tea Break", format: :json
       json = JSON.parse(response.body)
       ids = json["shops"].map { |c| c["name"] }
