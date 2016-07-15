@@ -1,14 +1,15 @@
 import React from 'react';
-import { Callout } from 'react-foundation';
 
 const Shop = props => {
 
   return(
     <div className="row">
-      <Callout>
-        <h3><a href={`/shops/${props.id}`}>{props.name}</a></h3>
-        <p>{props.address}, {props.city}, {props.state} {props.zip}</p>
-      </Callout>
+      <div className="small-10 small-centered columns">
+        <div className={props.style}>
+          <h3><a href={`/shops/${props.id}`}>{props.name}</a></h3>
+          <p>{props.address}, {props.city}, {props.state} {props.zip}</p>
+        </div>
+      </div>
     </div>
   );
 }

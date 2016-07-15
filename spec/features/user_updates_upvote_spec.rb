@@ -10,8 +10,8 @@ feature "user votes on a review", js: true do
   scenario "user changes their vote from an upvote to a downvote" do
     sign_in
     visit shop_path(shop)
-    click_button "upvote"
-    click_button "downvote"
+    click_button "^"
+    click_button "v"
 
     expect(page).to have_css("div.votecount-1", text: "-1")
   end
@@ -19,8 +19,8 @@ feature "user votes on a review", js: true do
   scenario "user changes their vote from a downvote to an upvote" do
     sign_in
     visit shop_path(shop)
-    click_button "downvote"
-    click_button "upvote"
+    click_button "v"
+    click_button "^"
 
     expect(page).to have_css("div.votecount-1", text: "1")
   end

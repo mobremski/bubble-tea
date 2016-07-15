@@ -18,14 +18,14 @@
     </div>
   </div>
 
-  <div class="callout warning">
+  <div class="callout primary">
     <div class="shop-description">
       <span class="bold">Description:</span> <%= @shop.description %>
     </div>
 
     <div class="row" data-equalizer data-equalize-on="medium">
       <div class="small-12 medium-4 columns">
-        <div class="callout success" data-equalizer-watch>
+        <div class="callout secondary" data-equalizer-watch>
           <h4>Address</h4>
           <p><%= @shop.address %>
           <%= @shop.city %>, <%= @shop.state %> <%= @shop.zip %></p>
@@ -33,7 +33,7 @@
       </div>
 
       <div class="small-12 medium-4 columns">
-        <div class="callout success" data-equalizer-watch>
+        <div class="callout secondary" data-equalizer-watch>
           <h4>Pricing</h4>
           <% if @shop.pricing && @shop.pricing != "" %>
             <p><%= @shop.pricing %></p>
@@ -44,7 +44,7 @@
       </div>
 
       <div class="small-12 medium-4 columns">
-        <div class="callout success" data-equalizer-watch>
+        <div class="callout secondary" data-equalizer-watch>
           <h4>Hours</h4>
           <% if @shop.hours && @shop.hours != "" %>
             <p><%= @shop.hours %></p>
@@ -89,24 +89,24 @@
         <div class="row">
           <%= form_for [review, @vote], html: { class: "upvote" } do |f| %>
             <%= f.hidden_field :upvote, value: true %>
-            <%= f.submit "upvote", class: "button" %>
+            <%= f.submit "^", class: "button upvote-button" %>
           <% end %>
         </div>
         <div class="row">
-          <div class="votecount-<%= review.id %>"><%= review.votecounts %></div>
+          <div class="votecount-<%= review.id %> bold"><%= review.votecounts %></div>
         </div>
         <div class="row">
           <%= form_for [review, @vote], html: { class: "downvote" } do |f| %>
             <%= f.hidden_field :upvote, value: false %>
-            <%= f.submit "downvote", class: "button" %>
+            <%= f.submit "v", class: "button downvote-button" %>
           <% end %>
         </div>
       </div>
       <div class="small-10 large-11 columns">
         <% if index % 2 == 0 %>
-          <div class="callout warning">
+          <div class="callout primary">
         <% else %>
-          <div class="callout success">
+          <div class="callout secondary">
         <% end %>
           <p><span class="bold"><%= review.user.first_name %> <%= review.user.last_name %></span>
           Rating: <% review.rating.times do %>
