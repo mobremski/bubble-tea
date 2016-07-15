@@ -157,3 +157,12 @@ label {
 .main-info {
   background-color: $opaque-light-blue;
 }
+
+.vote-parent {
+  display: table;
+}
+
+.vote-child {
+  display: table-cell;
+  vertical-align: middle;
+}
