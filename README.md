@@ -3,4 +3,40 @@
 ![Code Climate](https://codeclimate.com/github/mobremski/bubble-tea.png)
 ![Coverage Status](https://coveralls.io/repos/mobremski/bubble-tea/badge.png)
 
-Our app is a Bubble Tea Shop review site.  This is a collaborative project for Launch Academy.
+# About This Project
+Our app is a Bubble Tea Shop review site.  This is a group project for Launch Academy.
+
+# Collaborators:
+Michael Obremski
+Shelly Stuart
+Padrig Tuck
+Alice Liou
+
+# Features:
+- Ability to add a bubble tea shop to be reviewed.
+- Ability to rate the shop (score on a scale of 1-5) and to optionally comment on it (write a review).
+- Ability to upvote or downvote a review utilizing AJAX so that a complete page reload isn't necessary.
+- Sign up and authentication system for users (with devise).
+- Ability to upload a profile photo (with CarrierWave).
+- Ability to search for items.
+- An admin role where admins are able to delete reviews or items if they are deemed to be inappropriate.
+- Emails are sent to the owner of an item when a new review is posted about it.
+- An index page for items that live-updates using React.js
+
+# To get this project on your machine
+1. From your terminal, run ```git clone https://github.com/mobremski/bubble-tea.git```
+2. Switch into the project directory by running ```cd bubble-tea```
+3. Run ```bundle install``` and ```npm install```to install the necessary dependencies on your machine.
+4. Start your server by running ```rails server```. In a separate tab in your terminal, run ```npm start```.
+5. Visit ```localhost:3000``` to run through the app!
+
+Alternatively, you can also find our project on Heroku at: https://dry-oasis-46949.herokuapp.com/
+
+# Technologies in this Project
+Ruby on Rails
+Devise
+React
+AJAX
+CarrierWave
+Capybara
+NPM
