@@ -7,10 +7,10 @@
 Our app is a Bubble Tea Shop review site.  This is a group project for Launch Academy.
 
 # Collaborators:
-Michael Obremski
-Shelly Stuart
-Padrig Tuck
-Alice Liou
+- Michael Obremski (https://github.com/mobremski/)
+- Shelly Stuart (https://github.com/shellystuart)
+- Padrig Tuck (https://github.com/padrigirdap)
+- Alice Liou (https://github.com/amliou)
 
 # Features:
 - Ability to add a bubble tea shop to be reviewed.
@@ -27,16 +27,16 @@ Alice Liou
 1. From your terminal, run ```git clone https://github.com/mobremski/bubble-tea.git```
 2. Switch into the project directory by running ```cd bubble-tea```
 3. Run ```bundle install``` and ```npm install```to install the necessary dependencies on your machine.
-4. Start your server by running ```rails server```. In a separate tab in your terminal, run ```npm start```.
+4. Start your server by running ```rails server``` from your command line. In a separate tab, run ```npm start```.
 5. Visit ```localhost:3000``` to run through the app!
 
 Alternatively, you can also find our project on Heroku at: https://dry-oasis-46949.herokuapp.com/
 
 # Technologies in this Project
-Ruby on Rails
-Devise
-React
-AJAX
-CarrierWave
-Capybara
-NPM
+- Ruby on Rails
+- Devise
+- React
+- AJAX
+- CarrierWave
+- Capybara
+- NPM
