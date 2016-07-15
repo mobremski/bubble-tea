@@ -1,5 +1,6 @@
 @import "foundation_and_overrides";
 $light-blue: rgba(222, 240, 252, 0.3);
+$opaque-light-blue: rgba(222, 240, 252, 0.7);
 $purple: rgba(216, 214, 254, 0.3);
 $blue: #66c0f1;
 
@@ -143,8 +144,16 @@ label {
 .upvote-button,
 .downvote-button {
   font-weight: bold;
-  padding-bottom: 0.55em;
+  font-size: 30px;
   padding-left: 0.6em;
   padding-right: 0.6em;
-  padding-top: 0.55em;
+}
+
+.upvote-button:focus,
+.downvote-button:focus {
+  outline: 0;
+}
+
+.main-info {
+  background-color: $opaque-light-blue;
 }

@@ -10,8 +10,8 @@ feature "user votes on a review", js: true do
   scenario "user deletes their upvote by clicking the upvote button again", js: true do
     sign_in
     visit shop_path(shop)
-    click_button "^"
-    click_button "^"
+    find(".upvote-button").trigger("click")
+    find(".upvote-button").trigger("click")
 
     expect(page).to have_css("div.votecount-1", text: "0")
   end
@@ -19,8 +19,8 @@ feature "user votes on a review", js: true do
   scenario "user deletes downvote by clicking the downvote button again", js: true do
     sign_in
     visit shop_path(shop)
-    click_button "v"
-    click_button "v"
+    find(".downvote-button").trigger("click")
+    find(".downvote-button").trigger("click")
 
     expect(page).to have_css("div.votecount-1", text: "0")
   end

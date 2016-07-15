@@ -18,7 +18,7 @@
     </div>
   </div>
 
-  <div class="callout primary">
+  <div class="callout main-info">
     <div class="shop-description">
       <span class="bold">Description:</span> <%= @shop.description %>
     </div>
@@ -89,7 +89,9 @@
         <div class="row">
           <%= form_for [review, @vote], html: { class: "upvote" } do |f| %>
             <%= f.hidden_field :upvote, value: true %>
-            <%= f.submit "^", class: "button upvote-button" %>
+            <%= f.button class: "upvote-button" do %>
+              <i class="fa fa-sort-asc" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </div>
         <div class="row">
@@ -98,7 +100,9 @@
         <div class="row">
           <%= form_for [review, @vote], html: { class: "downvote" } do |f| %>
             <%= f.hidden_field :upvote, value: false %>
-            <%= f.submit "v", class: "button downvote-button" %>
+            <%= f.button class: "downvote-button" do %>
+              <i class="fa fa-sort-desc" aria-hidden="true"></i>
+            <% end %>
           <% end %>
         </div>
       </div>
